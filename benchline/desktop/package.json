@@ -1,0 +1,43 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "Everyday Wine Store desktop POS — offline-first, local SQLite, syncs to the Django/Postgres cloud backend when online.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "electron .",
+    "dist:win": "electron-builder --win"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.0",
+    "electron": "^44.0.0",
+    "electron-builder": "^25.1.8",
+    "vite": "^8.2.2"
+  },
+  "build": {
+    "appId": "com.everydaywinestore.pos",
+    "productName": "Everyday Wine Store POS",
+    "files": [
+      "src/main/**/*",
+      "renderer-dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist-installer"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
